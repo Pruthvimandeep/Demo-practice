@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-flow-deployment
+  labels:
+    app: project-flow
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: project-flow
+
+  template:
+    metadata:
+      labels:
+        app: project-flow
+
+    spec:
+      containers:
+      - name: project-flow-container
+        image: 618531912376.dkr.ecr.us-east-1.amazonaws.com/project-flow:v1
+        ports:
+        - containerPort: 80
